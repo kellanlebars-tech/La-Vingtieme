@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>La Vingtième</title>
+<style>
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #FFD100;
+    color: #000;
+    padding-top: 120px;
+  }
+
+  /* BARRE HORIZONTALE */
+  .top-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 110px;
+    width: 100%;
+    background: #000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+    display: flex;
+    align-items: center;
+    padding: 0 40px;
+    justify-content: space-between;
+    z-index: 5;
+  }
+
+  .top-bar img {
+    height: 80px;
+  }
+
+  .logo-20ans {
+    margin-right: 160px;
+  }
+
+  .top-bar-center {
+    text-align: center;
+    transform: translateX(-40px);
+  }
+
+  .top-bar-center h2 {
+    margin: 0;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #FFD100;
+  }
+
+  .mini-menu {
+    margin-top: 5px;
+  }
+
+  .mini-menu a {
+    text-decoration: none;
+    color: #FFD100;
+    margin: 0 15px;
+    font-weight: bold;
+    font-size: 1.1rem;
+  }
+
+  .mini-menu a:hover {
+    text-decoration: underline;
+  }
+
+  /* SECTIONS */
+  #voiture,
+  #projet,
+  #equipe,
+  #stand,
+  #contact {
+    scroll-margin-top: 140px;
+  }
+
+  /* CARROUSEL */
+  .slider-container {
+    width: 70%;
+    margin: 40px auto;
+    position: relative;
+  }
+
+  .slider {
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  }
+
+  .slides {
+    display: flex;
+    transition: transform 0.5s ease;
+  }
+
+  .slides img {
+    flex: 0 0 100%;
+    width: 100%;
+    height: 300px;
+    object-fit: contain;
+    background: white;
+  }
+
+  .arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2rem;
+    background: rgba(255,255,255,0.7);
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+
+  .left { left: -50px; }
+  .right { right: -50px; }
+
+  /* TEXTE PROJET */
+  .carousel-text {
+    width: 70%;
+    margin: 20px auto 60px;
+    background: white;
+    padding: 30px 40px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    font-size: 1.1rem;
+    line-height: 1.7;
+    text-align: center;
+  }
+
+  /* ÉQUIPE */
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 60px;
+  }
+
+  .card {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    width: 180px;
+    text-align: center;
+    padding: 20px 10px 30px;
+  }
+
+  .avatar {
+    width: 100px;
+    height: 100px;
+    background-color: #c9c9c9;
+    border-radius: 50%;
+    margin: 0 auto 20px;
+  }
+
+  .name {
+    font-weight: bold;
+    font-style: italic;
+    margin-bottom: 6px;
+  }
+
+  .role {
+    font-style: italic;
+    font-size: 0.9em;
+    color: #444;
+  }
+
+  /* STAND (AJOUT UNIQUEMENT) */
+  .stand-section {
+    width: 70%;
+    margin: 0 auto 60px;
+    text-align: center;
+  }
+
+  .stand-section h3 {
+    font-size: 2rem;
+    margin-bottom: 25px;
+  }
+
+  .stand-section img {
+    max-width: 100%;
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  }
+
+  /* CONTACT */
+  .contact-section {
+    width: 70%;
+    margin: 0 auto 60px;
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  }
+
+  .contact-section h3 {
+    text-align: center;
+    margin-bottom: 25px;
+  }
+
+  .contact-section form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .contact-section input,
+  .contact-section textarea {
+    padding: 12px;
+    font-size: 1rem;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+  }
+
+  .contact-section button {
+    background: #FFD100;
+    color: #000;
+    border: none;
+    padding: 12px;
+    font-size: 1.1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+
+  footer {
+    text-align: center;
+    padding: 20px 0;
+  }
+
+  .course-link {
+    color: #000;
+    font-weight: bold;
+    font-size: 1.1rem;
+    text-decoration: none;
+  }
+
+  footer a {
+    color: #FFD100;
+    font-weight: bold;
+    font-size: 1.1rem;
+    text-decoration: none;
+  }
+</style>
+</head>
+
+<body>
+
+<!-- BARRE -->
+<div class="top-bar">
+  <img src="img/logo_course_en_cours.png" alt="Course en Cours">
+
+  <div class="top-bar-center">
+    <h2>La Vingtième</h2>
+    <div class="mini-menu">
+      <a href="#">Accueil</a>
+      <a href="#voiture">Voiture</a>
+      <a href="#projet">Projet</a>
+      <a href="#equipe">Équipe</a>
+    </div>
+  </div>
+
+  <img class="logo-20ans" src="img/Capture d'écran 2025-12-10 084248.png" alt="20 ans">
+</div>
+
+<!-- VOITURE -->
+<div class="slider-container" id="voiture">
+  <div class="slider">
+    <div class="slides" id="slides">
+      <img src="img/AIR.png" alt="Aérodynamique">
+      <img src="img/Banc de test.png" alt="Banc de test">
+      <img src="img/Coupe.png" alt="Conception">
+    </div>
+  </div>
+  <div class="arrow left" onclick="moveSlide(-1)">&#10094;</div>
+  <div class="arrow right" onclick="moveSlide(1)">&#10095;</div>
+</div>
+
+<!-- PROJET --> <div class="carousel-text" id="projet"> Nous participons au concours 
+  <strong>Course en Cours</strong> à travers un projet ambitieux intitulé 
+  <strong>« La Vingtième »</strong>. Ce nom symbolise les
+   <strong>20 ans du concours</strong> et s’inspire de la 
+   <strong>Renault Clio 3</strong>, modèle emblématique. 
+   <br><br> 
+   Notre objectif est de concevoir un véhicule performant alliant 
+   <strong>design, efficacité et innovation</strong>, tout en respectant les contraintes techniques du concours. Ce projet est le fruit d’un travail d’équipe rigoureux illustrant notre engagement et notre passion pour l’ingénierie automobile. </div></strong>
+  </div>
+
+<!-- ÉQUIPE -->
+<div class="container" id="equipe">
+  <div class="card"><div class="avatar"></div><div class="name">Noah</div><div class="role">Responsable style et design</div></div>
+  <div class="card"><div class="avatar"></div><div class="name">Mathis</div><div class="role">Responsable style et design</div></div>
+  <div class="card"><div class="avatar"></div><div class="name">Maxence</div><div class="role">Responsable style et design</div></div>
+  <div class="card"><div class="avatar"></div><div class="name">Emilien</div><div class="role">Chef d’équipe / Ingénieur conception</div></div>
+  <div class="card"><div class="avatar"></div><div class="name">Kellan</div><div class="role">Ingénieur motoriste</div></div>
+</div>
+
+<!-- STAND (AJOUT SEUL) -->
+<div class="stand-section" id="stand">
+  <h3>Le stand</h3>
+  <img src="img/Capture d'écran 2025-12-18 171131.png" Croquis du stand La Vingtième">
+</div>
+
+<!-- CONTACT -->
+<div class="contact-section" id="contact">
+  <h3>Contactez-nous</h3>
+  <form action="mailto:ldvequipe1@yahoo.com" method="post" enctype="text/plain">
+    <input type="text" name="Nom" placeholder="Votre nom" required>
+    <input type="email" name="Email" placeholder="Votre email" required>
+    <textarea name="Message" rows="5" placeholder="Votre message" required></textarea>
+    <button type="submit">Envoyer</button>
+  </form>
+</div>
+
+<footer>
+  <a class="course-link" href="https://course-en-cours.com/" target="_blank">
+    Visiter Course-en-Cours.com
+  </a><br><br>
+  <a href="mailto:ldvequipe1@yahoo.com">ldvequipe1@yahoo.com</a>
+</footer>
+
+<script>
+let index = 0;
+const slides = document.getElementById("slides");
+const total = slides.children.length;
+
+function moveSlide(step) {
+  index = (index + step + total) % total;
+  slides.style.transform = `translateX(${-index * 100}%)`;
+}
+
+setInterval(() => moveSlide(1), 3000);
+</script>
+
+</body>
+</html>
