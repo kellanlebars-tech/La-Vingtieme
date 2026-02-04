@@ -6,7 +6,7 @@
 <title>La Vingtième</title>
 
 <style>
-/* RESET */
+/* ================= RESET ================= */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -19,7 +19,7 @@ html {
 
 body {
   font-family: Arial, sans-serif;
-  background: #FFD100;
+  background: #1E90FF; /* BLEU */
   color: #000;
   padding-top: 110px;
 }
@@ -31,14 +31,13 @@ body {
   top: 0;
   left: 0;
   width: 100%;
-  background: #000;
+  background: #fff; /* BLANC */
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 10px 30px;
   z-index: 100;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.5);
-  transition: 0.3s;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.2);
 }
 
 .top-bar img {
@@ -51,8 +50,7 @@ body {
 
 .top-bar-center h2 {
   font-size: 2.2rem;
-  color: #FFD100;
-  animation: fadeIn 1s ease;
+  color: #1E90FF;
 }
 
 .mini-menu {
@@ -60,7 +58,7 @@ body {
 }
 
 .mini-menu a {
-  color: #FFD100;
+  color: #1E90FF;
   text-decoration: none;
   margin: 0 10px;
   font-weight: bold;
@@ -74,7 +72,7 @@ body {
   bottom: -3px;
   width: 0;
   height: 2px;
-  background: #FFD100;
+  background: #1E90FF;
   transition: 0.3s;
 }
 
@@ -94,14 +92,13 @@ section {
   width: 70%;
   margin: 40px auto;
   position: relative;
-  animation: fadeUp 0.8s ease;
 }
 
 .slider {
   width: 100%;
   height: 320px;
   overflow: hidden;
-  background: white;
+  background: #fff;
   border-radius: 18px;
   box-shadow: 0 10px 25px rgba(0,0,0,0.15);
 }
@@ -115,7 +112,7 @@ section {
   width: 100%;
   height: 320px;
   object-fit: contain;
-  background: white;
+  background: #fff;
 }
 
 .arrow {
@@ -123,15 +120,10 @@ section {
   top: 50%;
   transform: translateY(-50%);
   font-size: 2rem;
-  background: rgba(255,255,255,0.8);
+  background: rgba(255,255,255,0.9);
   padding: 10px 15px;
   border-radius: 50%;
   cursor: pointer;
-  transition: 0.3s;
-}
-
-.arrow:hover {
-  background: #FFD100;
 }
 
 .left { left: -60px; }
@@ -142,14 +134,13 @@ section {
 .carousel-text {
   width: 70%;
   margin: 20px auto 60px;
-  background: white;
+  background: #fff;
   padding: 30px 40px;
   border-radius: 18px;
   box-shadow: 0 10px 25px rgba(0,0,0,0.15);
   font-size: 1.1rem;
   line-height: 1.7;
   text-align: center;
-  animation: fadeUp 1s ease;
 }
 
 /* ================= ÉQUIPE ================= */
@@ -163,7 +154,7 @@ section {
 }
 
 .card {
-  background: white;
+  background: #fff;
   border-radius: 18px;
   box-shadow: 0 10px 25px rgba(0,0,0,0.15);
   text-align: center;
@@ -172,13 +163,13 @@ section {
 }
 
 .card:hover {
-  transform: translateY(-8px) scale(1.02);
+  transform: translateY(-8px);
 }
 
 .avatar {
   width: 90px;
   height: 90px;
-  background-color: #ccc;
+  background-color: #ddd;
   border-radius: 50%;
   margin: 0 auto 15px;
 }
@@ -190,7 +181,7 @@ section {
 
 .role {
   font-size: 0.9rem;
-  color: #444;
+  color: #555;
 }
 
 /* ================= STAND ================= */
@@ -199,7 +190,6 @@ section {
   width: 70%;
   margin: 0 auto 60px;
   text-align: center;
-  animation: fadeUp 1s ease;
 }
 
 .stand-section h3 {
@@ -209,15 +199,10 @@ section {
 
 .stand-section img {
   max-width: 100%;
-  background: white;
+  background: #fff;
   padding: 20px;
   border-radius: 18px;
   box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-  transition: 0.3s;
-}
-
-.stand-section img:hover {
-  transform: scale(1.03);
 }
 
 /* ================= CONTACT ================= */
@@ -225,7 +210,7 @@ section {
 .contact-section {
   width: 70%;
   margin: 0 auto 60px;
-  background: white;
+  background: #fff;
   padding: 40px;
   border-radius: 18px;
   box-shadow: 0 10px 25px rgba(0,0,0,0.15);
@@ -247,30 +232,21 @@ section {
   padding: 12px;
   border-radius: 10px;
   border: 1px solid #ccc;
-  transition: 0.3s;
-}
-
-.contact-section input:focus,
-.contact-section textarea:focus {
-  outline: none;
-  border-color: #FFD100;
-  box-shadow: 0 0 0 2px rgba(255,209,0,0.3);
 }
 
 .contact-section button {
-  background: #FFD100;
+  background: #1E90FF;
   border: none;
   padding: 12px;
   font-size: 1.1rem;
   border-radius: 10px;
   cursor: pointer;
   font-weight: bold;
-  transition: 0.3s;
+  color: #fff;
 }
 
 .contact-section button:hover {
-  background: #000;
-  color: #FFD100;
+  background: #0b5ed7;
 }
 
 /* ================= FOOTER ================= */
@@ -281,21 +257,9 @@ footer {
 }
 
 footer a {
-  color: #000;
+  color: #fff;
   font-weight: bold;
   text-decoration: none;
-}
-
-/* ================= ANIMATIONS ================= */
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(-10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(40px); }
-  to { opacity: 1; transform: translateY(0); }
 }
 
 /* ================= RESPONSIVE ================= */
@@ -321,17 +285,6 @@ footer a {
     display: none;
   }
 }
-
-@media (max-width: 500px) {
-  .top-bar-center h2 {
-    font-size: 1.6rem;
-  }
-
-  .mini-menu a {
-    font-size: 0.9rem;
-    margin: 0 6px;
-  }
-}
 </style>
 </head>
 
@@ -352,7 +305,7 @@ footer a {
     </div>
   </div>
 
-  <img src="img/Capture d'écran 2025-12-10 084248.png" alt="20 ans">
+  <img src="img/20ans.png" alt="20 ans">
 </div>
 
 <section id="voiture">
@@ -360,8 +313,8 @@ footer a {
     <div class="slider">
       <div class="slides" id="slides">
         <img src="img/AIR.png" alt="Aérodynamique">
-        <img src="img/Banc de test.png" alt="Banc de test">
-        <img src="img/Coupe.png" alt="Conception">
+        <img src="img/banc-de-test.png" alt="Banc de test">
+        <img src="img/coupe.png" alt="Conception">
       </div>
     </div>
     <div class="arrow left" onclick="moveSlide(-1)">&#10094;</div>
@@ -393,17 +346,17 @@ footer a {
 <section id="stand">
   <div class="stand-section">
     <h3>Le stand</h3>
-    <img src="img/Capture d'écran 2025-12-18 171131.png" alt="Croquis du stand">
+    <img src="img/stand.png" alt="Croquis du stand">
   </div>
 </section>
 
 <section id="contact">
   <div class="contact-section">
     <h3>Contactez-nous</h3>
-    <form action="mailto:ldvequipe1@yahoo.com" method="post" enctype="text/plain">
-      <input type="text" name="Nom" placeholder="Votre nom" required>
-      <input type="email" name="Email" placeholder="Votre email" required>
-      <textarea name="Message" rows="5" placeholder="Votre message" required></textarea>
+    <form>
+      <input type="text" placeholder="Votre nom" required>
+      <input type="email" placeholder="Votre email" required>
+      <textarea rows="5" placeholder="Votre message" required></textarea>
       <button type="submit">Envoyer</button>
     </form>
   </div>
@@ -429,3 +382,4 @@ let autoSlide = setInterval(() => moveSlide(1), 4000);
 
 </body>
 </html>
+
