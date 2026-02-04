@@ -19,8 +19,8 @@ html {
 
 body {
   font-family: Arial, sans-serif;
-  background: #1E90FF; /* BLEU */
-  color: #000;        /* TEXTE NOIR */
+  background: #1E90FF;
+  color: #000;
   padding-top: 110px;
   overflow-x: hidden;
 }
@@ -32,12 +32,12 @@ body {
   top: 0;
   left: 0;
   width: 100%;
-  background: #fff; /* BLANC */
+  background: #fff;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 10px 30px;
-  z-index: 100;
+  z-index: 1000;
   box-shadow: 0 5px 20px rgba(0,0,0,0.3);
   transition: 0.3s;
 }
@@ -47,11 +47,12 @@ body {
 }
 
 .top-bar img.logo-20ans {
-  height: 60px;
+  height: 65px;
 }
 
 .top-bar-center {
   text-align: center;
+  flex: 1;
 }
 
 .top-bar-center h2 {
@@ -105,7 +106,6 @@ section {
   width: 100%;
   height: 320px;
   overflow: hidden;
-  background: #fff;
   border-radius: 18px;
   box-shadow: 0 10px 25px rgba(0,0,0,0.15);
 }
@@ -113,18 +113,22 @@ section {
 .slides {
   display: flex;
   transition: transform 0.6s ease-in-out;
+  height: 100%;
 }
 
 .slide {
   min-width: 100%;
-  height: 320px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .slide img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Remplit le slide */
-  object-position: center; /* Centre l’image pour un meilleur cadrage */
+  object-fit: cover; /* Recadrage */
+  object-position: center; /* Centre l’image */
   border-radius: 18px;
 }
 
@@ -317,36 +321,18 @@ footer a {
 /* ================= RESPONSIVE ================= */
 
 @media (max-width: 900px) {
-  body {
-    padding-top: 150px;
-  }
-
-  .top-bar {
-    flex-direction: column;
-    gap: 10px;
-  }
-
+  body { padding-top: 150px; }
+  .top-bar { flex-direction: column; gap: 10px; }
   .slider-container,
   .carousel-text,
   .stand-section,
-  .contact-section {
-    width: 90%;
-  }
-
-  .arrow {
-    display: none;
-  }
+  .contact-section { width: 90%; }
+  .arrow { display: none; }
 }
 
 @media (max-width: 500px) {
-  .top-bar-center h2 {
-    font-size: 1.6rem;
-  }
-
-  .mini-menu a {
-    font-size: 0.9rem;
-    margin: 0 6px;
-  }
+  .top-bar-center h2 { font-size: 1.6rem; }
+  .mini-menu a { font-size: 0.9rem; margin: 0 6px; }
 }
 </style>
 </head>
@@ -355,7 +341,7 @@ footer a {
 
 <div class="top-bar">
   <img src="img/logo_course_en_cours.png" alt="Course en Cours" class="logo-course">
-
+  
   <div class="top-bar-center">
     <h2>La Vingtième</h2>
     <div class="mini-menu">
@@ -367,11 +353,10 @@ footer a {
       <a href="#contact">Contact</a>
     </div>
   </div>
-
+  
   <img src="img/20ans.png" alt="20 ans" class="logo-20ans">
 </div>
 
-<!-- ================= CARROUSEL ================= -->
 <section id="voiture">
   <div class="slider-container">
     <div class="slider">
@@ -436,18 +421,14 @@ let index = 0;
 const slidesContainer = document.getElementById("slides");
 const totalSlides = slidesContainer.children.length;
 
-// Déplacement du slide
 function moveSlide(step) {
   index = (index + step + totalSlides) % totalSlides;
   slidesContainer.style.transform = `translateX(${-index * 100}%)`;
 }
 
-// Auto-slide toutes les 4 secondes
 let autoSlide = setInterval(() => moveSlide(1), 4000);
 
-// Stopper auto-slide au clic sur flèche
-const arrows = document.querySelectorAll('.arrow');
-arrows.forEach(arrow => {
+document.querySelectorAll('.arrow').forEach(arrow => {
   arrow.addEventListener('click', () => {
     clearInterval(autoSlide);
     autoSlide = setInterval(() => moveSlide(1), 4000);
