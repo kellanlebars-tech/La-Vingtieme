@@ -127,10 +127,13 @@ section {
 .slide img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Recadrage */
-  object-position: center; /* Centre l’image */
+  object-fit: contain;     /* ✅ image affichée en entier */
+  object-position: center;
+  background: #fff;
   border-radius: 18px;
 }
+
+/* ================= FLÈCHES ================= */
 
 .arrow {
   position: absolute;
@@ -341,7 +344,6 @@ footer a {
 
 <div class="top-bar">
   <img src="img/logo_course_en_cours.png" alt="Course en Cours" class="logo-course">
-  
   <div class="top-bar-center">
     <h2>La Vingtième</h2>
     <div class="mini-menu">
@@ -353,7 +355,6 @@ footer a {
       <a href="#contact">Contact</a>
     </div>
   </div>
-  
   <img src="img/20ans.png" alt="20 ans" class="logo-20ans">
 </div>
 
