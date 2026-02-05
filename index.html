@@ -1,29 +1,32 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>La Vingtième</title>
 
 <style>
-/* ================= RESET ================= */
+/* RESET */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+}
 
 body {
   font-family: Arial, sans-serif;
   background: #1E90FF;
   color: #000;
-  padding-top: 120px;
+  padding-top: 110px;
   overflow-x: hidden;
 }
 
 /* ================= HEADER ================= */
+
 .top-bar {
   position: fixed;
   top: 0;
@@ -36,36 +39,45 @@ body {
   padding: 10px 30px;
   z-index: 1000;
   box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+  transition: 0.3s;
 }
 
-.top-bar img { height: 65px; }
+.top-bar img.logo-course {
+  height: 65px;
+}
+
+.top-bar img.logo-20ans {
+  height: 65px;
+}
 
 .top-bar-center {
-  flex: 1;
   text-align: center;
+  flex: 1;
 }
 
-.top-bar-center h1 {
+.top-bar-center h2 {
   font-size: 2.2rem;
+  color: #000;
+  animation: fadeIn 1s ease;
 }
 
 .mini-menu {
-  margin-top: 6px;
+  margin-top: 5px;
 }
 
 .mini-menu a {
-  text-decoration: none;
   color: #000;
-  font-weight: bold;
+  text-decoration: none;
   margin: 0 10px;
+  font-weight: bold;
   position: relative;
 }
 
 .mini-menu a::after {
   content: "";
   position: absolute;
-  bottom: -4px;
   left: 0;
+  bottom: -3px;
   width: 0;
   height: 2px;
   background: #000;
@@ -77,9 +89,13 @@ body {
 }
 
 /* ================= SECTIONS ================= */
-section { scroll-margin-top: 140px; }
 
-/* ================= SLIDER ================= */
+section {
+  scroll-margin-top: 130px;
+}
+
+/* ================= CARROUSEL ================= */
+
 .slider-container {
   width: 70%;
   margin: 40px auto;
@@ -87,6 +103,7 @@ section { scroll-margin-top: 140px; }
 }
 
 .slider {
+  width: 100%;
   height: 320px;
   overflow: hidden;
   border-radius: 18px;
@@ -95,18 +112,24 @@ section { scroll-margin-top: 140px; }
 
 .slides {
   display: flex;
-  height: 100%;
   transition: transform 0.6s ease-in-out;
+  height: 100%;
 }
 
 .slide {
   min-width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .slide img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: cover; /* Recadrage */
+  object-position: center; /* Centre l’image */
+  border-radius: 18px;
 }
 
 .arrow {
@@ -115,10 +138,12 @@ section { scroll-margin-top: 140px; }
   transform: translateY(-50%);
   font-size: 2rem;
   background: rgba(255,255,255,0.9);
-  border: none;
   padding: 10px 15px;
   border-radius: 50%;
   cursor: pointer;
+  transition: 0.3s;
+  color: #000;
+  user-select: none;
 }
 
 .arrow:hover {
@@ -129,6 +154,7 @@ section { scroll-margin-top: 140px; }
 .right { right: -50px; }
 
 /* ================= TEXTE PROJET ================= */
+
 .carousel-text {
   width: 70%;
   margin: 20px auto 60px;
@@ -136,47 +162,67 @@ section { scroll-margin-top: 140px; }
   padding: 30px 40px;
   border-radius: 18px;
   box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-  text-align: center;
+  font-size: 1.1rem;
   line-height: 1.7;
+  text-align: center;
+  animation: fadeUp 1s ease;
+  color: #000;
 }
 
 /* ================= ÉQUIPE ================= */
+
 .container {
-  width: 80%;
-  margin: 0 auto 60px;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
   gap: 25px;
+  width: 80%;
+  margin: 0 auto 60px;
 }
 
 .card {
   background: #fff;
   border-radius: 18px;
-  padding: 20px;
-  text-align: center;
   box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  text-align: center;
+  padding: 20px;
   transition: 0.3s;
+  color: #000;
 }
 
 .card:hover {
-  transform: translateY(-8px);
+  transform: translateY(-8px) scale(1.02);
 }
 
 .avatar {
   width: 90px;
   height: 90px;
-  background: #ccc;
+  background-color: #ccc;
   border-radius: 50%;
-  margin: 0 auto 12px;
+  margin: 0 auto 15px;
 }
 
-.name { font-weight: bold; font-style: italic; }
+.name {
+  font-weight: bold;
+  font-style: italic;
+}
+
+.role {
+  font-size: 0.9rem;
+  color: #000;
+}
 
 /* ================= STAND ================= */
+
 .stand-section {
   width: 70%;
   margin: 0 auto 60px;
   text-align: center;
+  animation: fadeUp 1s ease;
+}
+
+.stand-section h3 {
+  font-size: 2rem;
+  margin-bottom: 20px;
 }
 
 .stand-section img {
@@ -185,9 +231,15 @@ section { scroll-margin-top: 140px; }
   padding: 20px;
   border-radius: 18px;
   box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  transition: 0.3s;
+}
+
+.stand-section img:hover {
+  transform: scale(1.03);
 }
 
 /* ================= CONTACT ================= */
+
 .contact-section {
   width: 70%;
   margin: 0 auto 60px;
@@ -197,144 +249,191 @@ section { scroll-margin-top: 140px; }
   box-shadow: 0 10px 25px rgba(0,0,0,0.15);
 }
 
+.contact-section h3 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #000;
+}
+
 .contact-section form {
   display: flex;
   flex-direction: column;
   gap: 15px;
 }
 
-input, textarea {
+.contact-section input,
+.contact-section textarea {
   padding: 12px;
   border-radius: 10px;
   border: 1px solid #ccc;
+  transition: 0.3s;
+  color: #000;
 }
 
-button {
+.contact-section input:focus,
+.contact-section textarea:focus {
+  outline: none;
+  border-color: #1E90FF;
+  box-shadow: 0 0 0 2px rgba(30,144,255,0.3);
+}
+
+.contact-section button {
   background: #1E90FF;
   border: none;
   padding: 12px;
-  border-radius: 10px;
   font-size: 1.1rem;
-  font-weight: bold;
+  border-radius: 10px;
   cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+  color: #000;
+}
+
+.contact-section button:hover {
+  background: #fff;
 }
 
 /* ================= FOOTER ================= */
+
 footer {
   text-align: center;
-  padding: 20px;
+  padding: 20px 0;
+}
+
+footer a {
+  color: #000;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+/* ================= ANIMATIONS ================= */
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 /* ================= RESPONSIVE ================= */
+
 @media (max-width: 900px) {
-  body { padding-top: 160px; }
+  body { padding-top: 150px; }
   .top-bar { flex-direction: column; gap: 10px; }
-  .slider-container, .carousel-text, .stand-section, .contact-section { width: 90%; }
+  .slider-container,
+  .carousel-text,
+  .stand-section,
+  .contact-section { width: 90%; }
   .arrow { display: none; }
+}
+
+@media (max-width: 500px) {
+  .top-bar-center h2 { font-size: 1.6rem; }
+  .mini-menu a { font-size: 0.9rem; margin: 0 6px; }
 }
 </style>
 </head>
 
 <body>
 
-<header class="top-bar">
-  <img src="img/logo-course.png" alt="Course en Cours">
+<div class="top-bar">
+  <img src="img/logo_course_en_cours.png" alt="Course en Cours" class="logo-course">
+  
   <div class="top-bar-center">
-    <h1>La Vingtième</h1>
-    <nav class="mini-menu">
+    <h2>La Vingtième</h2>
+    <div class="mini-menu">
       <a href="#">Accueil</a>
       <a href="#voiture">Voiture</a>
       <a href="#projet">Projet</a>
       <a href="#equipe">Équipe</a>
       <a href="#stand">Stand</a>
       <a href="#contact">Contact</a>
-    </nav>
+    </div>
   </div>
-  <img src="img/20ans.png" alt="20 ans">
-</header>
+  
+  <img src="img/20ans.png" alt="20 ans" class="logo-20ans">
+</div>
 
 <section id="voiture">
   <div class="slider-container">
     <div class="slider">
       <div class="slides" id="slides">
-        <div class="slide"><img src="img/air.png" alt="Aérodynamique"></div>
-        <div class="slide"><img src="img/banc-test.png" alt="Banc de test"></div>
-        <div class="slide"><img src="img/coupe.png" alt="Conception"></div>
+        <div class="slide"><img src="img/AIR.png" alt="Aérodynamique"></div>
+        <div class="slide"><img src="img/Banc de test.png" alt="Banc de test"></div>
+        <div class="slide"><img src="img/Coupe.png" alt="Conception"></div>
       </div>
     </div>
-    <button class="arrow left" aria-label="Image précédente">&#10094;</button>
-    <button class="arrow right" aria-label="Image suivante">&#10095;</button>
+    <div class="arrow left" onclick="moveSlide(-1)">&#10094;</div>
+    <div class="arrow right" onclick="moveSlide(1)">&#10095;</div>
   </div>
 </section>
 
 <section id="projet">
   <div class="carousel-text">
-    <strong>La Vingtième</strong> célèbre les <strong>20 ans du concours Course en Cours</strong>.  
-    Inspiré de la Renault Clio 3, notre véhicule allie design, innovation et efficacité.
+    Nous participons au concours <strong>Course en Cours</strong> avec le projet 
+    <strong>« La Vingtième »</strong>, symbole des <strong>20 ans du concours</strong>.
+    Inspiré de la <strong>Renault Clio 3</strong>, notre véhicule allie 
+    <strong>design, efficacité et innovation</strong>.
+    <br><br>
+    Ce projet est le fruit d’un travail d’équipe rigoureux et d’une passion commune pour l’ingénierie automobile.
   </div>
 </section>
 
 <section id="equipe">
   <div class="container">
-    <div class="card"><div class="avatar"></div><div class="name">Noah</div>Design</div>
-    <div class="card"><div class="avatar"></div><div class="name">Mathis</div>Design</div>
-    <div class="card"><div class="avatar"></div><div class="name">Maxence</div>Design</div>
-    <div class="card"><div class="avatar"></div><div class="name">Emilien</div>Chef d’équipe</div>
-    <div class="card"><div class="avatar"></div><div class="name">Kellan</div>Motoriste</div>
+    <div class="card"><div class="avatar"></div><div class="name">Noah</div><div class="role">Design</div></div>
+    <div class="card"><div class="avatar"></div><div class="name">Mathis</div><div class="role">Design</div></div>
+    <div class="card"><div class="avatar"></div><div class="name">Maxence</div><div class="role">Design</div></div>
+    <div class="card"><div class="avatar"></div><div class="name">Emilien</div><div class="role">Chef d’équipe</div></div>
+    <div class="card"><div class="avatar"></div><div class="name">Kellan</div><div class="role">Motoriste</div></div>
   </div>
 </section>
 
 <section id="stand">
   <div class="stand-section">
-    <h2>Le stand</h2>
-    <img src="img/stand.png" alt="Croquis du stand">
+    <h3>Le stand</h3>
+    <img src="img/Capture d'écran 2025-12-18 171131.png" alt="Croquis du stand">
   </div>
 </section>
 
 <section id="contact">
   <div class="contact-section">
-    <h2>Contactez-nous</h2>
-    <form action="https://formspree.io/f/xxxxxxx" method="POST">
-      <input type="text" name="nom" placeholder="Votre nom" required>
-      <input type="email" name="email" placeholder="Votre email" required>
-      <textarea name="message" rows="5" placeholder="Votre message" required></textarea>
+    <h3>Contactez-nous</h3>
+    <form action="mailto:ldvequipe1@yahoo.com" method="post" enctype="text/plain">
+      <input type="text" name="Nom" placeholder="Votre nom" required>
+      <input type="email" name="Email" placeholder="Votre email" required>
+      <textarea name="Message" rows="5" placeholder="Votre message" required></textarea>
       <button type="submit">Envoyer</button>
     </form>
   </div>
 </section>
 
 <footer>
-  <a href="https://course-en-cours.com/" target="_blank">course-en-cours.com</a><br>
-  ldvequipe1@yahoo.com
+  <a href="https://course-en-cours.com/" target="_blank">Visiter Course-en-Cours.com</a><br><br>
+  <a href="mailto:ldvequipe1@yahoo.com">ldvequipe1@yahoo.com</a>
 </footer>
 
 <script>
-const slides = document.getElementById("slides");
-const total = slides.children.length;
 let index = 0;
-let timer = setInterval(nextSlide, 4000);
+const slidesContainer = document.getElementById("slides");
+const totalSlides = slidesContainer.children.length;
 
-function nextSlide() {
-  index = (index + 1) % total;
-  slides.style.transform = `translateX(${-index * 100}%)`;
+function moveSlide(step) {
+  index = (index + step + totalSlides) % totalSlides;
+  slidesContainer.style.transform = `translateX(${-index * 100}%)`;
 }
 
-function prevSlide() {
-  index = (index - 1 + total) % total;
-  slides.style.transform = `translateX(${-index * 100}%)`;
-}
+let autoSlide = setInterval(() => moveSlide(1), 4000);
 
-document.querySelector(".right").onclick = () => {
-  clearInterval(timer);
-  nextSlide();
-  timer = setInterval(nextSlide, 4000);
-};
-
-document.querySelector(".left").onclick = () => {
-  clearInterval(timer);
-  prevSlide();
-  timer = setInterval(nextSlide, 4000);
-};
+document.querySelectorAll('.arrow').forEach(arrow => {
+  arrow.addEventListener('click', () => {
+    clearInterval(autoSlide);
+    autoSlide = setInterval(() => moveSlide(1), 4000);
+  });
+});
 </script>
 
 </body>
