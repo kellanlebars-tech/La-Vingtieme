@@ -19,7 +19,7 @@ html {
 
 body {
   font-family: Arial, sans-serif;
-  background: linear-gradient(to bottom right, #1E90FF, #f0f8ff); /* ✅ dégradé bleu vers blanc légèrement bleuté */
+  background: linear-gradient(to bottom right, #1E90FF, #f0f8ff);
   color: #000;
   padding-top: 110px;
   overflow-x: hidden;
@@ -296,6 +296,41 @@ section {
   background: #fff;
 }
 
+/* ================= SPONSORS ================= */
+
+.sponsors-section {
+  width: 70%;
+  margin: 0 auto 60px;
+  text-align: center;
+  animation: fadeUp 1s ease;
+}
+
+.sponsors-section h3 {
+  font-size: 2rem;
+  margin-bottom: 30px;
+}
+
+.sponsors-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  flex-wrap: wrap;
+}
+
+.sponsors-container img {
+  max-height: 90px;
+  background: #fff;
+  padding: 20px 30px;
+  border-radius: 18px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  transition: 0.3s;
+}
+
+.sponsors-container img:hover {
+  transform: scale(1.05);
+}
+
 /* ================= FOOTER ================= */
 
 footer {
@@ -329,8 +364,10 @@ footer a {
   .slider-container,
   .carousel-text,
   .stand-section,
-  .contact-section { width: 90%; }
+  .contact-section,
+  .sponsors-section { width: 90%; }
   .arrow { display: none; }
+  .sponsors-container { gap: 25px; }
 }
 
 @media (max-width: 500px) {
@@ -347,7 +384,7 @@ footer a {
   <div class="top-bar-center">
     <h2>La Vingtième</h2>
     <div class="mini-menu">
-      <a href="#acceuil">Accueil</a>
+      <a href="#voiture">Accueil</a>
       <a href="#voiture">Voiture</a>
       <a href="#projet">Projet</a>
       <a href="#equipe">Équipe</a>
@@ -409,6 +446,17 @@ footer a {
       <textarea name="Message" rows="5" placeholder="Votre message" required></textarea>
       <button type="submit">Envoyer</button>
     </form>
+  </div>
+</section>
+
+<!-- ================= SPONSORS ================= -->
+
+<section class="sponsors-section">
+  <h3>Nos sponsors Course en Cours</h3>
+  <div class="sponsors-container">
+    <img src="img/logo-partenaire-pfa.png" alt="PFA">
+    <img src="img/logo-partenaire-gouv.png" alt="Ministère de l'Éducation Nationale">
+    <img src="img/logo-partenaire-dassault.png" alt="Dassault Systèmes">
   </div>
 </section>
 
