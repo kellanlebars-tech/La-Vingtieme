@@ -375,6 +375,42 @@ footer a {
   .top-bar-center h2 { font-size: 1.6rem; }
   .mini-menu a { font-size: 0.9rem; margin: 0 6px; }
 }
+
+/* ================= AUTRES ÉQUIPES ================= */
+
+.teams-section {
+  width: 70%;
+  margin: 0 auto 60px;
+  text-align: center;
+  animation: fadeUp 1s ease;
+}
+
+.teams-section h3 {
+  font-size: 2rem;
+  margin-bottom: 30px;
+}
+
+.teams-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.teams-container img {
+  max-height: 180px;
+  background: #fff;
+  padding: 20px;
+  border-radius: 18px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.18);
+  transition: 0.3s;
+}
+
+.teams-container img:hover {
+  transform: scale(1.05);
+}
+
 </style>
 </head>
 
@@ -457,6 +493,16 @@ footer a {
     <img src="img/logo-partenaire-gouv.png" alt="Ministère de l'Éducation Nationale">
     <img src="img/logo-partenaire-dassault.png" alt="Dassault Systèmes">
     <img src="img/logo-partenaire-elles-bougent.png" alt="elles-bougent">
+  </div>
+</section>
+
+<section class="teams-section">
+  <h3>Les autres équipes</h3>
+
+  <div class="teams-container">
+    <img src="img/teckel.jpg" alt="Team Teckel">
+    <img src="img/banane.png" alt="Chasseurs de Banane">
+    <img src="img/cochon.png" alt="Confrérie du Jambon Vendéen">
   </div>
 </section>
 
